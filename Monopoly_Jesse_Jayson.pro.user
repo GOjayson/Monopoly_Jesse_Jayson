@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2020-10-23T10:05:31. -->
+<!-- Written by QtCreator 4.13.2, 2020-10-23T10:46:48. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -325,8 +325,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/jesse/Documents/C++/Monopoly/Monopoly_Jayson_Jesse/Monopoly_Jayson_Jesse.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jesse/Documents/C++/Monopoly/Monopoly_Jayson_Jesse/Monopoly_Jayson_Jesse.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/jesse/OneDrive - PXL/School/2020 - 2021 - 2 AEIa/Github/Monopoly_Jesse_Jayson/Monopoly_Jesse_Jayson.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jesse/OneDrive - PXL/School/2020 - 2021 - 2 AEIa/Github/Monopoly_Jesse_Jayson/Monopoly_Jesse_Jayson.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
