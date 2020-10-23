@@ -18,7 +18,6 @@ SOURCES += \
 HEADERS += \
     chancecards.h \
     communitychest.h \
-    dice.h \
     printf.h \
     straten.h
 
