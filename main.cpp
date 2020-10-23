@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
     // add a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
-
+    // show the view
     view->show();
     return a.exec();
 }
