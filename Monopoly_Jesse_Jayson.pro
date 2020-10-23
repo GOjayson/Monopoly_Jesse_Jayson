@@ -13,12 +13,14 @@ SOURCES += \
     communitychest.cpp \
     dice.cpp \
     main.cpp \
+    myRect.cpp \
     straten.cpp
 
 HEADERS += \
     chancecards.h \
     communitychest.h \
     dice.h \
+    myRect.h \
     printf.h \
     straten.h
 

@@ -2,11 +2,4 @@
 
 straten::straten()
 {
-<<<<<<< HEAD
-    int lol;
-=======
-
-
-    rhdshorhgg
->>>>>>> main
 }

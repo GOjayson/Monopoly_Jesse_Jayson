@@ -1,17 +1,7 @@
 #include <QApplication>
 #include <QGraphicsScene>
-#include <QGraphicsRectItem>
+#include "myRect.h"
 #include <QGraphicsView>
-
-/*
-Prereqs:
--basic knowledge of c++ (pointers and memory management)
--VERY basic knowledge of Qt (widgets)
-Tutorial Topics:
--QGraphicsScene
--QGraphicsItem (QGraphicsRectItem)
--QGraphicsView
-*/
 
 int main(int argc, char *argv[])
 {
@@ -21,14 +11,19 @@ int main(int argc, char *argv[])
     QGraphicsScene * scene = new QGraphicsScene();
 
     // create an item to put into the scene
-    QGraphicsRectItem * rect = new QGraphicsRectItem();
+    myRect * rect = new myRect();
     rect->setRect(0,0,100,100);
 
     // add the item to the scene
     scene->addItem(rect);
 
+    //make item focusable (anders is het item niet responsive)
+    rect->setFlag(QGraphicsItem::ItemIsFocusable);
+    rect->setFocus();
+
     // add a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
+
     // show the view
     view->show();
     return a.exec();
