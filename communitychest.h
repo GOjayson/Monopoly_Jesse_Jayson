@@ -4,8 +4,8 @@
 
 class CommunityChest
 {
-public:
-    CommunityChest();
+    public:
+        CommunityChest();
 };
 
 #endif // COMMUNITYCHEST_H

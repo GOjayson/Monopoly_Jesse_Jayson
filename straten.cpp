@@ -2,5 +2,5 @@
 
 straten::straten()
 {
-
+    int lol;
 }
