@@ -9,10 +9,18 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp
+    chancecards.cpp \
+    communitychest.cpp \
+    dice.cpp \
+    main.cpp \
+    straten.cpp
 
 HEADERS += \
-    printf.h
+    chancecards.h \
+    communitychest.h \
+    dice.h \
+    printf.h \
+    straten.h
 
 FORMS +=
 
