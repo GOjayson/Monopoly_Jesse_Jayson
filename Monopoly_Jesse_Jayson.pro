@@ -13,6 +13,7 @@ SOURCES += \
     communitychest.cpp \
     dice.cpp \
     main.cpp \
+    mainwindow.cpp \
     myRect.cpp \
     straten.cpp
 
@@ -20,11 +21,14 @@ HEADERS += \
     chancecards.h \
     communitychest.h \
     dice.h \
+    dice.h \
+    mainwindow.h \
     myRect.h \
     printf.h \
     straten.h
 
-FORMS +=
+FORMS += \
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
