@@ -6,39 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>499</height>
+    <width>959</width>
+    <height>764</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButtonDice">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>60</y>
-     <width>121</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Click to roll the dice</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_Board">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>50</y>
-     <width>311</width>
-     <height>311</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QPushButton" name="pushButtonDice">
+     <property name="text">
+      <string>Click to roll the dice</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label_Board">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

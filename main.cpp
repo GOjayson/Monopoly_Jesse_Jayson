@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-/*
+
    // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
 
@@ -26,11 +26,9 @@ int main(int argc, char *argv[])
     // add a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
 
-    // show the view
+    //show the view
     view->setWindowTitle("My app");
     view->show();
- */
-    MainWindow w;
-    w.show();
+
     return a.exec();
 }
