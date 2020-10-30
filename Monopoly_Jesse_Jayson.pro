@@ -10,7 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     Players.cpp \
-    chancecards.cpp \
+#    chancecards.cpp \
     communitychest.cpp \
     dice.cpp \
     main.cpp \
@@ -18,7 +18,7 @@ SOURCES += \
     straten.cpp
 
 HEADERS += \
-    chancecards.h \
+#    chancecards.h \
     communitychest.h \
     dice.h \
     dice.h \
@@ -32,3 +32,6 @@ FORMS +=
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

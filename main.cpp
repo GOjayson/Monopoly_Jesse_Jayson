@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 
    // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,1200,1000); //maakt de scene 800 x 600 ipv oneindig
 
     // create an item to put into the scene
     myRect * rect = new myRect();
