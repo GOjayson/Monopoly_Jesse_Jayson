@@ -1,4 +1,4 @@
-#include "chancecards.h"
+#include "moveCard.h"
 #include "cstdio"
 
 int gaNaarStart()

@@ -3,8 +3,14 @@
 
 class dice
 {
-public:
-    dice();
+    private:
+        int sides;
+
+
+    public:
+        dice();
+
+        int gooidice();
 };
 
 #endif // DICE_H
