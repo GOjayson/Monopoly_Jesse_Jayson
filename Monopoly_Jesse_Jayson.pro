@@ -11,20 +11,20 @@ CONFIG += c++11
 SOURCES += \
     Players.cpp \
 #    chancecards.cpp \
-    communitychest.cpp \
+    board.cpp \
     dice.cpp \
+    game.cpp \
     main.cpp \
-    myRect.cpp \
-    straten.cpp
+    myRect.cpp
 
 HEADERS += \
 #    chancecards.h \
-    communitychest.h \
+    board.h \
     dice.h \
     dice.h \
+    game.h \
     myRect.h \
-    printf.h \
-    straten.h
+    printf.h
 
 FORMS +=
 
