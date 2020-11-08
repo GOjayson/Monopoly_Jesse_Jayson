@@ -6,8 +6,8 @@
 
 class board : public QGraphicsPixmapItem{
 public:
-        board(QGraphicsItem * parent =0);
-private:
+        //constructors
+        board(QGraphicsItem * parent =NULL);
 };
 
 
