@@ -14,7 +14,8 @@ SOURCES += \
     button.cpp \
     game.cpp \
     main.cpp \
-    myRect.cpp
+    myRect.cpp \
+    showCardsMenu.cpp
 
 HEADERS += \
 #    chancecards.h \
@@ -22,7 +23,8 @@ HEADERS += \
     button.h \
     game.h \
     myRect.h \
-    printf.h
+    printf.h \
+    showCardsMenu.h
 
 FORMS +=
 

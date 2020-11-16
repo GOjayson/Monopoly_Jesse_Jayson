@@ -8,7 +8,7 @@ button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
     setRect(0,0,200,50);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkBlue);
+    brush.setColor(Qt::darkGreen);
     setBrush(brush);
 
     //draw the text
@@ -34,7 +34,7 @@ void button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::blue);
+    brush.setColor(Qt::green);
     setBrush(brush);
 }
 
@@ -42,6 +42,6 @@ void button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkBlue);
+    brush.setColor(Qt::darkGreen);
     setBrush(brush);
 }

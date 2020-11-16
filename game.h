@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <QWidget>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
@@ -18,6 +19,7 @@ public:
 
 public slots:
     void start();
+    void showCards();
 
 };
 

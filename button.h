@@ -3,8 +3,9 @@
 
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
-
-//#include <QGraphicsTextItem>
+#include <QGraphicsSceneHoverEvent>
+#include <QGraphicsTextItem>
+#include <QString>
 
 class button : public QObject, public QGraphicsRectItem{
     Q_OBJECT

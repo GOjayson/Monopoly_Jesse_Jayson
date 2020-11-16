@@ -1,16 +1,19 @@
 #include <QApplication>
-#include <game.h>
+#include "game.h"
+
+#include "showCardsMenu.h"
 
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    game *game1 = new game;
+
+    game *window1 = new game;
 
     //Game tonen
-    game1->show();
-    game1->displayMainMenu();
+    window1->show();
+    window1->displayMainMenu();
 
     return a.exec();
 }
