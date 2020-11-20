@@ -10,9 +10,6 @@ public:
     //constructors
     showCardsMenu(QWidget* parent=NULL);
 
-    //public methods
-   // void displayMainMenu();
-
     //public attributes
     QGraphicsScene* scene;
 

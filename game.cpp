@@ -1,10 +1,14 @@
 #include "game.h"
 #include "board.h"
 #include "button.h"
+#include "showCardsMenu.h"
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 
-#include "showCardsMenu.h" //niet zeker
+
+#include <iostream> //voor de dice --> verwijder later
+#include <cstdlib>
+#include <ctime>
 
 
 game::game(QWidget* parent)
@@ -18,38 +22,6 @@ game::game(QWidget* parent)
     scene = new QGraphicsScene(this); //de "this" is om de QGraphicsView een parent te maken van deze scene
     scene->setSceneRect(0,0,1500,1000); // make the scene 1000x1000 instead of ifinity
     setScene(scene);
-
-}
-
-void game::showCards()
-{
-    showCardsMenu *window2 = new showCardsMenu;
-    window2->show();
-}
-
-void game::start() //knoppen zijn 200x50
-{
-    //clear screen
-    scene->clear();
-
-    //create board
-    board *monopolyboard = new board();
-    scene->addItem(monopolyboard);
-
-    //create the dice button
-    button* diceButton = new button(QString("Throw the dice"));
-    int dxPos = 1150;
-    int dyPos = 275;
-    diceButton->setPos(dxPos,dyPos);
-    scene->addItem(diceButton);
-
-    //show cards button
-    button* showCardsButton = new button(QString("Show cards"));
-    int showCxPos = 1150;
-    int showCyPos = 350;
-    showCardsButton->setPos(showCxPos,showCyPos);
-    connect(showCardsButton, SIGNAL(clicked()),this,SLOT(showCards()));
-    scene->addItem(showCardsButton);
 
 }
 
@@ -83,3 +55,58 @@ void game::displayMainMenu()
     scene->addItem(quiteButton);
 
 }
+
+void game::start() //knoppen zijn 200x50
+{
+    //clear screen
+    scene->clear();
+
+    //create board
+    board *monopolyboard = new board();
+    scene->addItem(monopolyboard);
+
+
+
+    //show cards button
+    button* showCardsButton = new button(QString("Show cards"));
+    int showCxPos = 1150;
+    int showCyPos = 225;
+    showCardsButton->setPos(showCxPos,showCyPos);
+    connect(showCardsButton, SIGNAL(clicked()),this,SLOT(showCards()));
+    scene->addItem(showCardsButton);
+
+    //create the dice button
+    button* diceButton = new button(QString("Throw the dice"));
+    int dxPos = 1150;
+    int dyPos = 325;
+    diceButton->setPos(dxPos,dyPos);
+    connect(diceButton, SIGNAL(clicked()),this,SLOT(throwDice()));
+    scene->addItem(diceButton);
+
+
+}
+
+void game::showCards()
+{
+    showCardsMenu *window2 = new showCardsMenu;
+    window2->show();
+}
+
+void game::throwDice()
+{
+
+    srand(time(0));
+
+    int dice1 = (int) (1+rand()%6);
+    int dice2 = (int) (1+rand()%6);
+    int diceSum = dice1 + dice2;
+
+    QString s = QString::number(diceSum);
+
+    //text
+    QGraphicsTextItem *text = new QGraphicsTextItem(QString(s));
+    text->setPos(1150,500);
+    scene->addItem(text);
+}
+
+

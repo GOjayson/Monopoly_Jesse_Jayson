@@ -14,10 +14,6 @@ showCardsMenu::showCardsMenu(QWidget *parent)
     scene->setSceneRect(0,0,1500,1000); // make the scene 1000x1000 instead of ifinity
     setScene(scene);
 
-    //Display the scene
-   /* QGraphicsView *view = new QGraphicsView(scene);
-    view->show();*/
-
     //create the dice button
     button* diceButton = new button(QString("Throw the dice"));
     int dxPos = 1150;

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QGraphicsTextItem>
 
 class game: public QGraphicsView{
     Q_OBJECT //moet voor signals en slots
@@ -20,6 +21,7 @@ public:
 public slots:
     void start();
     void showCards();
+    void throwDice();
 
 };
 

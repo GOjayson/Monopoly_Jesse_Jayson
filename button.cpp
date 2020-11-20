@@ -13,6 +13,7 @@ button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
 
     //draw the text
     text = new QGraphicsTextItem (Name, this);
+    text->setDefaultTextColor(Qt::white);
     //om de text in het midden van de knop te krijgen (de knop is de parent)
     int xPos = rect().width()/2 - text->boundingRect().width()/2;
     int yPos = rect().height()/2 - text->boundingRect().height()/2;
