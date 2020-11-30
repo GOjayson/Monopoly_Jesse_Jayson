@@ -1,6 +1,7 @@
 #include "game.h"
 #include "board.h"
 #include "button.h"
+#include "pawn1.h"
 #include "showCardsMenu.h"
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
@@ -65,8 +66,6 @@ void game::start() //knoppen zijn 200x50
     board *monopolyboard = new board();
     scene->addItem(monopolyboard);
 
-
-
     //show cards button
     button* showCardsButton = new button(QString("Show cards"));
     int showCxPos = 1150;
@@ -83,6 +82,10 @@ void game::start() //knoppen zijn 200x50
     connect(diceButton, SIGNAL(clicked()),this,SLOT(throwDice()));
     scene->addItem(diceButton);
 
+    //create pawn1
+    pawn1 *pawnNumber1 = new pawn1();
+    pawnNumber1->setPos(900,900);
+    scene->addItem(pawnNumber1);
 
 }
 
@@ -94,19 +97,36 @@ void game::showCards()
 
 void game::throwDice()
 {
+    //scene->removeItem(text);
 
+    /*onderstaande code wordt in de toekomst vervangen met een opgeroepen functie*/
     srand(time(0));
-
     int dice1 = (int) (1+rand()%6);
     int dice2 = (int) (1+rand()%6);
     int diceSum = dice1 + dice2;
+    /*---------------------------------------------------------------------------*/
 
-    QString s = QString::number(diceSum);
+    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceSum);
 
     //text
-    QGraphicsTextItem *text = new QGraphicsTextItem(QString(s));
+    text = new QGraphicsTextItem(s);
     text->setPos(1150,500);
     scene->addItem(text);
+
+    //voor timer (mss verwijderen later)
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(removeDiceText));
+    timer->start(1000);
+
+
+}
+
+void game::removeDiceText() //voor timer (mss verwijderen later)
+{
+    text = new QGraphicsTextItem(QString("hoi"));
+    text->setPos(1150,500);
+    scene->addItem(text);
+    scene->removeItem(text);
 }
 
 

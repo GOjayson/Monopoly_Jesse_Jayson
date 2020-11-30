@@ -4,12 +4,10 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 
-
 class board : public QGraphicsPixmapItem{
 public:
         //constructors
-        board(QGraphicsItem * parent =NULL);
+        board(QGraphicsItem * parent =nullptr);
 };
-
 
 #endif // BOARD_H

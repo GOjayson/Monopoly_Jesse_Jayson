@@ -5,8 +5,8 @@
 
 class myRect: public QGraphicsRectItem
 {
-    public:
-            void keyPressEvent(QKeyEvent * event);
+public:
+        void keyPressEvent(QKeyEvent * event);
 };
 
 #endif // MYRECT_H

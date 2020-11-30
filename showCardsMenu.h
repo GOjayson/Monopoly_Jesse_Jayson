@@ -8,7 +8,7 @@
 class showCardsMenu: public QGraphicsView{
 public:
     //constructors
-    showCardsMenu(QWidget* parent=NULL);
+    showCardsMenu(QWidget* parent=nullptr);
 
     //public attributes
     QGraphicsScene* scene;
