@@ -1,15 +1,20 @@
 #include "button.h"
+#include "game.h"
 #include <QBrush>
 #include <QGraphicsTextItem>
+#include <iostream>
 
 button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
 {
     //draw rect
     setRect(0,0,200,50);
+
+    //paint the rect
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
+    brush.setColor(game::getWhosTurnColor());
     setBrush(brush);
+    std::cout << "setbrush"<< std::endl;
 
     //draw the text
     text = new QGraphicsTextItem (Name, this);
@@ -35,7 +40,19 @@ void button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::green);
+    QColor color = game::getWhosTurnColor();
+    if(color == Qt::darkGreen)
+    {
+        brush.setColor(Qt::green);
+    }
+    if(color == Qt::darkBlue)
+    {
+        brush.setColor(Qt::blue);
+    }
+    if(color == Qt::darkRed)
+    {
+        brush.setColor(Qt::red);
+    }
     setBrush(brush);
 }
 
@@ -43,6 +60,6 @@ void button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
+    brush.setColor(game::getWhosTurnColor());
     setBrush(brush);
 }

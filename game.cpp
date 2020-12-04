@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <ctime>
 
+QColor game::whosTurnColor;
 
 game::game(QWidget* parent)
 {
@@ -26,12 +27,44 @@ game::game(QWidget* parent)
 
 }
 
+void game::setWhosTurn(QString player)
+{
+    //change the Qstring
+    whosTurn = player;
+
+    if(whosTurn == "NONE")
+    {
+        //change color for who's turn it is
+        game::whosTurnColor = Qt::darkGreen;
+    }
+    if(whosTurn == "PLAYER 1")
+    {
+        //change color for who's turn it is
+        game::whosTurnColor = Qt::darkBlue;
+    }
+    if(whosTurn == "PLAYER 2")
+    {
+        //change color for who's turn it is
+        game::whosTurnColor = Qt::darkRed;
+    }
+
+    //change the text
+    whosTurnText->setPlainText(player);
+}
+
 void game::displayMainMenu()
 {
+    //place whosTurn text
+    whosTurnText = new QGraphicsTextItem();
+    setWhosTurn(QString("NONE"));
+/*    scene->addItem(whosTurnText);
+    scene->removeItem(whosTurnText); */
+
     //create title
     QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Monopoly"));
     QFont titleFont("showcard gothic", 50);
     titleText->setFont(titleFont);
+    titleText->setDefaultTextColor(Qt::darkGreen);
 
     //positie/plaatsen titel
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
@@ -65,6 +98,23 @@ void game::start() //knoppen zijn 200x50
     //create board
     board *monopolyboard = new board();
     scene->addItem(monopolyboard);
+
+    //place whosTurn text
+    whosTurnText = new QGraphicsTextItem();
+    setWhosTurn(QString("PLAYER 1"));
+    QFont playerFont("showcard gothic", 20);
+    whosTurnText->setFont(playerFont);
+    whosTurnText->setDefaultTextColor(Qt::darkBlue);
+    whosTurnText->setPos(1050,35);
+    scene->addItem(whosTurnText);
+
+    //place geldbedrag
+    moneyText = new QGraphicsTextItem("$1000");
+    QFont moneyFont("showcard gothic", 20);
+    moneyText->setFont(moneyFont);
+    moneyText->setDefaultTextColor(Qt::darkBlue);
+    moneyText->setPos(1050,70);
+    scene->addItem(moneyText);
 
     //show cards button
     button* showCardsButton = new button(QString("Show cards"));
@@ -109,9 +159,9 @@ void game::throwDice()
     QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceSum);
 
     //text
-    text = new QGraphicsTextItem(s);
-    text->setPos(1150,500);
-    scene->addItem(text);
+    noteText = new QGraphicsTextItem(s);
+    noteText->setPos(1150,500);
+    scene->addItem(noteText);
 
     //voor timer (mss verwijderen later)
     timer = new QTimer(this);
@@ -123,10 +173,10 @@ void game::throwDice()
 
 void game::removeDiceText() //voor timer (mss verwijderen later)
 {
-    text = new QGraphicsTextItem(QString("hoi"));
-    text->setPos(1150,500);
-    scene->addItem(text);
-    scene->removeItem(text);
+    noteText = new QGraphicsTextItem(QString("hoi"));
+    noteText->setPos(1150,500);
+    scene->addItem(noteText);
+    scene->removeItem(noteText);
 }
 
 

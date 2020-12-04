@@ -1,7 +1,6 @@
 #include "board.h"
 #include <QPixmap>
 
-
 board::board(QGraphicsItem* parent)
 {
     //set the graphics

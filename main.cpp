@@ -1,7 +1,6 @@
-#include <QApplication>
 #include "game.h"
-
 #include "showCardsMenu.h"
+#include <QApplication>
 
 
 
