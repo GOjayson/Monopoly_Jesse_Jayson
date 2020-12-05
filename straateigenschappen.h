@@ -1,6 +1,8 @@
 #ifndef STRAATEIGENSCHAPPEN_H
 #define STRAATEIGENSCHAPPEN_H
 
+#include <acties.h>
+
 
 class straatEigenschappen
 {
@@ -10,13 +12,13 @@ class straatEigenschappen
         int getHuizen();
         int getEigenaar();
         string getType();
-        int getTax():
+        int getTax();
         int getHuur();
         bool getHypotheek();
         int getParking();
         int getEigendomPrijs();
         string getStraatText(int textIndex);
-        string getNaam(int naamIndex)
+        string getNaam(int naamIndex);
 
         // functies om values te veranderen
         void setTax(int inputTax);

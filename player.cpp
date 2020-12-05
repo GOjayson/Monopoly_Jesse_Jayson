@@ -62,7 +62,7 @@ void krijgGeld(int hoeveelheid) // Speler krijgt geld door i.e. start
 
 int getGeld() // bart heeft $300
 {
-    return geld
+    return geld;
 }
 
 void verliesGeld(int hoeveelheid) // verliest geld door i.e. belastingen

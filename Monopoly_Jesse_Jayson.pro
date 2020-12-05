@@ -11,21 +11,29 @@ CONFIG += c++11
 SOURCES += \
     acties.cpp \
     bank.cpp \
+    card.cpp \
     dice.cpp \
+    moneyactie.cpp \
     moneycard.cpp \
-    moveCard.cpp \
+    moveactie.cpp \
+    movecard.cpp \
     player.cpp \
+    spelbord.cpp \
     straateigenschappen.cpp
 
 HEADERS += \
     acties.h \
     bank.h \
+    card.h \
     dice.h \
     dice.h \
+    moneyactie.h \
     moneycard.h \
-    moveCard.h \
+    moveactie.h \
+    movecard.h \
     player.h \
     printf.h \
+    spelbord.h \
     straateigenschappen.h
 
 FORMS +=

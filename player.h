@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Player
+class player
 {
 
     public:
@@ -19,7 +19,7 @@ class Player
         int getLocatie();
         string getPionNaam();
         bool getIsEigenaar(int inputIndex);
-        bool isAlive()
+        bool isAlive();
 
         // functies om values te veranderen
         void setSpelerNaam(string inputSpelerNaam);

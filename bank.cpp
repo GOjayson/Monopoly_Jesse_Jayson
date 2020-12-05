@@ -12,7 +12,7 @@ void krijgGeld(int hoeveelheid)
 
 int getGeld()
 {
-    return geld
+    return geld;
 }
 
 void verliesGeld(int hoeveelheid)

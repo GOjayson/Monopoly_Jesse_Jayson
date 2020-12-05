@@ -11,9 +11,12 @@ class acties
     public:
         // constructor
         acties();
-        acties(string inputNaam)
+        acties(string inputNaam);
 
-        virtual void executeActie(Player)
+        virtual void executeActie(player* player1, player* player2, int hoeveelheid) = 0;
+
+    private:
+        string naam;
 };
 
 #endif // ACTIES_H
