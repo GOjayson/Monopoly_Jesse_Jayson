@@ -3,14 +3,13 @@
 
 #include <QGraphicsEllipseItem>
 
-class pawn1: public QGraphicsEllipseItem
-{
+class pawn1: public QGraphicsEllipseItem{
 public:
     //constructors
     pawn1(QGraphicsItem* parent=nullptr);
 
-private:
-    void movepawn(int dice); //nog niet gebruikt
+    //public methods
+    int setPosPawn1(int diceRoll);
 };
 
 #endif // PAWN1_H

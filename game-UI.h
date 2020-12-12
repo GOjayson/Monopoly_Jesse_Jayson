@@ -17,7 +17,8 @@ public:
     //public methods
     void displayMainMenu();
     void setWhosTurn(QString player);
-    QString getWhosTurn() const {return (whosTurn);} //dit is volgens mij een punt voor c++ project
+    int movePawn1(int diceRoll);
+    QString getWhosTurn() const {return (whosTurn);} //nog niet gebruikt
     static QColor getWhosTurnColor() {return (game::whosTurnColor);}
 
     //public attributes
@@ -25,6 +26,11 @@ public:
     QTimer* timer; //voor timer (mss verwijderen later)
 
 public slots:
+    void whosturnMenuP1();
+    void displayWhosturnP1();
+    void whosturnMenuP2();
+    void displayWhosturnP2();
+    void finalDecisionWhosturn();
     void start();
     void showCards();
     void throwDice();

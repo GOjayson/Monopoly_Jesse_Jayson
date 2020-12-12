@@ -1,5 +1,6 @@
-#include "button.h"
-#include "game.h"
+#include "button-UI.h"
+#include "game-UI.h"
+
 #include <QBrush>
 #include <QGraphicsTextItem>
 #include <iostream>

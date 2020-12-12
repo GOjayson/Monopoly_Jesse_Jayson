@@ -1,4 +1,5 @@
-#include "board.h"
+#include "board-UI.h"
+
 #include <QPixmap>
 
 board::board(QGraphicsItem* parent)

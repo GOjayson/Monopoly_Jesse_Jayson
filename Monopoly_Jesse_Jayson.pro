@@ -10,23 +10,25 @@ CONFIG += c++11
 
 SOURCES += \
 #    chancecards.cpp \
-    board.cpp \
-    button.cpp \
-    game.cpp \
+    board-UI.cpp \
+    button-UI.cpp \
+    dice.cpp \
+    game-UI.cpp \
     main.cpp \
     myRect.cpp \
-    pawn1.cpp \
-    showCardsMenu.cpp
+    pawn1-UI.cpp \
+    showCardsMenu-UI.cpp
 
 HEADERS += \
 #    chancecards.h \
-    board.h \
-    button.h \
-    game.h \
+    board-UI.h \
+    button-UI.h \
+    dice.h \
+    game-UI.h \
     myRect.h \
-    pawn1.h \
+    pawn1-UI.h \
     printf.h \
-    showCardsMenu.h
+    showCardsMenu-UI.h
 
 FORMS +=
 

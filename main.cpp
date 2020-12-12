@@ -1,5 +1,6 @@
-#include "game.h"
-#include "showCardsMenu.h"
+#include "game-UI.h"
+#include "showCardsMenu-UI.h"
+
 #include <QApplication>
 
 

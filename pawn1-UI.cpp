@@ -1,4 +1,5 @@
-#include "pawn1.h"
+#include "pawn1-UI.h"
+
 #include <QBrush>
 
 pawn1::pawn1(QGraphicsItem *parent):QGraphicsEllipseItem(parent)
@@ -8,4 +9,10 @@ pawn1::pawn1(QGraphicsItem *parent):QGraphicsEllipseItem(parent)
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkBlue);
     setBrush(brush);
+
+}
+
+int pawn1::setPosPawn1(int diceRoll)
+{
+    setPos(1500,900);
 }

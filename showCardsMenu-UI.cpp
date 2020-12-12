@@ -1,5 +1,6 @@
-#include "showCardsMenu.h"
-#include "button.h"
+#include "showCardsMenu-UI.h"
+#include "button-UI.h"
+
 #include <QGraphicsScene>
 
 showCardsMenu::showCardsMenu(QWidget *parent)
