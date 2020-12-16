@@ -15,7 +15,6 @@ button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(game::getWhosTurnColor());
     setBrush(brush);
-    std::cout << "setbrush"<< std::endl;
 
     //draw the text
     text = new QGraphicsTextItem (Name, this);

@@ -1,25 +1,43 @@
 #include "game-UI.h"
 #include "board-UI.h"
 #include "button-UI.h"
-#include "pawn1-UI.h"
+#include "pawnP1-UI.h"
 #include "showCardsMenu-UI.h"
 #include "dice.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
-#include <QtCore>
+#include <iostream>
 
 QColor game::whosTurnColor;
 
 game::game(QWidget* parent)
 {
+    //place whosTurn text
+/*    whosTurnText = new QGraphicsTextItem();
+    setWhosTurn(QString("NONE")); //om de kleur van de buttons te bepalden
+    delete whosTurnText; */
+
+    //pointers die meermaals gerbuikt worden declareren
+    monopolyboard   =   new board();
+    whosTurnText    =   new QGraphicsTextItem();
+    moneyText       =   new QGraphicsTextItem();
+    showCardsButton =   new button(QString("Show cards"));
+    diceButton      =   new button(QString("Throw the dice"));
+    player1Pawn     =   new pawnP1();
+    nextButton      =   new button(QString("Next ->"));
+
+    connect(showCardsButton, SIGNAL(clicked()),this,SLOT(showCards()));
+    connect(diceButton, SIGNAL(clicked()),this,SLOT(throwDice()));
+    connect(nextButton, SIGNAL(clicked()),this,SLOT(start()));
+
     //set up the screen
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1500,1000);
 
     //Create a scene (soort storage voor alle QGraphicsItems en QGraphicView)
-    scene = new QGraphicsScene(this); //de "this" is om de QGraphicsView een parent te maken van deze scene
+    scene = new QGraphicsScene(); //de "this" is om de QGraphicsView een parent te maken van deze scene
     scene->setSceneRect(0,0,1500,1000); // make the scene 1000x1000 instead of ifinity
     setScene(scene);
 }
@@ -52,9 +70,7 @@ void game::setWhosTurn(QString player)
 void game::displayMainMenu()
 {
     //place whosTurn text
-    whosTurnText = new QGraphicsTextItem();
-    setWhosTurn(QString("NONE"));
-    delete whosTurnText;
+    setWhosTurn(QString("NONE")); //om de kleur van de buttons te bepalden
 
     //create title
     QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Monopoly"));
@@ -94,7 +110,7 @@ void game::whosturnMenuP1()
     QGraphicsTextItem* whosturnMenuText = new QGraphicsTextItem(QString("Player 1, throw the dice!"));
     QFont textFont("showcard gothic", 30);
     whosturnMenuText->setFont(textFont);
-    whosturnMenuText->setDefaultTextColor(Qt::darkGreen);
+    whosturnMenuText->setDefaultTextColor(game::getWhosTurnColor());
 
     //positie/plaatsen text
     int txPos = this->width()/2 - whosturnMenuText->boundingRect().width()/2;
@@ -102,7 +118,7 @@ void game::whosturnMenuP1()
     whosturnMenuText->setPos(txPos,tyPos);
     scene->addItem(whosturnMenuText);
 
-    //create the play button
+    //create the dice button
     button* diceButton = new button(QString("Throw the dice"));
     int pxPos = this->width()/2 - diceButton->boundingRect().width()/2;
     int pyPos = 275;
@@ -113,22 +129,29 @@ void game::whosturnMenuP1()
 
 void game::displayWhosturnP1()
 {
-    int diceRoll1 = dice().gooidice();
-    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRoll1);
+    std::cout << "dice gooit  "<< diceRollP1 << std::endl;
+    diceRollP1 = dice().gooidice();
+
+    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRollP1);
 
     //text
     noteText = new QGraphicsTextItem(s);
     QFont textFont("Berlin Sans BF", 15);
     noteText->setFont(textFont);
+
     //positie/plaatsen text
     int txPos = this->width()/2 - noteText->boundingRect().width()/2;
     int tyPos = 500;
     noteText->setPos(txPos,tyPos);
     scene->addItem(noteText);
 
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()),this,SLOT(whosturnMenuP2()));
-    timer->start(2500);
+    //create the next button
+    button* nextButton = new button(QString("Next ->"));
+    int pxPos = 1275;
+    int pyPos = 925;
+    nextButton->setPos(pxPos,pyPos);
+    connect(nextButton, SIGNAL(clicked()),this,SLOT(whosturnMenuP2()));
+    scene->addItem(nextButton);
 }
 
 void game::whosturnMenuP2()
@@ -140,7 +163,7 @@ void game::whosturnMenuP2()
     QGraphicsTextItem* whosturnMenuText = new QGraphicsTextItem(QString("Player 2, throw the dice!"));
     QFont textFont("showcard gothic", 30);
     whosturnMenuText->setFont(textFont);
-    whosturnMenuText->setDefaultTextColor(Qt::darkGreen);
+    whosturnMenuText->setDefaultTextColor(game::getWhosTurnColor());
 
     //positie/plaatsen text
     int txPos = this->width()/2 - whosturnMenuText->boundingRect().width()/2;
@@ -160,63 +183,97 @@ void game::whosturnMenuP2()
 
 void game::displayWhosturnP2()
 {
-    int diceRoll1 = dice().gooidice();
-    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRoll1);
+    diceRollP2 = dice().gooidice();
+
+    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRollP2);
+
     //text
     noteText = new QGraphicsTextItem(s);
     QFont textFont("Berlin Sans BF", 15);
     noteText->setFont(textFont);
+
     //positie/plaatsen text
     int txPos = this->width()/2 - noteText->boundingRect().width()/2;
     int tyPos = 500;
     noteText->setPos(txPos,tyPos);
     scene->addItem(noteText);
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()),this,SLOT(finalDecisionWhosturn()));
-    timer->start(2500);
+
+    //create the next button
+    button* nextButton = new button(QString("Next ->"));
+    int pxPos = 1275;
+    int pyPos = 925;
+    nextButton->setPos(pxPos,pyPos);
+    connect(nextButton, SIGNAL(clicked()),this,SLOT(finalDecisionWhosturn()));
+    scene->addItem(nextButton);
 }
 
 void game::finalDecisionWhosturn()
 {
+    int winningDice = 0;
+    char const* winningPlayer = "";
+
     //clear screen
     scene->clear();
 
+    if(diceRollP1>diceRollP2)
+    {
+        winningDice = diceRollP1;
+        winningPlayer = "Player 1";
+        whosTurnText = new QGraphicsTextItem();
+        setWhosTurn(QString("PLAYER 1"));
+    }
+    if(diceRollP2>diceRollP1)
+    {
+        winningDice = diceRollP2;
+        winningPlayer = "Player 2";
+        whosTurnText = new QGraphicsTextItem();
+        setWhosTurn(QString("PLAYER 2"));
+    }
+
     //text
-    QGraphicsTextItem* whosturnMenuText = new QGraphicsTextItem(QString("Hier zou de winnaar moeten staan!"));
+    QString s = QStringLiteral("%1 is de winnaar!").arg(winningPlayer);
+    QGraphicsTextItem* whosturnMenuText = new QGraphicsTextItem(s);
     QFont textFont("showcard gothic", 30);
     whosturnMenuText->setFont(textFont);
-    whosturnMenuText->setDefaultTextColor(Qt::darkGreen);
-
-    //positie/plaatsen text
+    whosturnMenuText->setDefaultTextColor(game::getWhosTurnColor());
     int txPos = this->width()/2 - whosturnMenuText->boundingRect().width()/2;
     int tyPos = 150;
     whosturnMenuText->setPos(txPos,tyPos);
     scene->addItem(whosturnMenuText);
 
-    //create the play button
-    button* diceButton = new button(QString("start"));
-    int pxPos = this->width()/2 - diceButton->boundingRect().width()/2;
+    //notetext
+    QString c = QStringLiteral("De winnaar heeft maar liefst %1 gegooid en mag als eerste starten!").arg(winningDice);
+    noteText = new QGraphicsTextItem(c);
+    QFont noteTextFont("Berlin Sans BF", 15);
+    noteText->setFont(noteTextFont);
+    int nxPos = this->width()/2 - noteText->boundingRect().width()/2;
+    int nyPos = 500;
+    noteText->setPos(nxPos,nyPos);
+    scene->addItem(noteText);
+
+    //create the start button
+    button* startButton = new button(QString("Start"));
+    int pxPos = this->width()/2 - startButton->boundingRect().width()/2;
     int pyPos = 275;
-    diceButton->setPos(pxPos,pyPos);
-    connect(diceButton, SIGNAL(clicked()),this,SLOT(start()));
-    scene->addItem(diceButton);
+    startButton->setPos(pxPos,pyPos);
+    connect(startButton, SIGNAL(clicked()),this,SLOT(start()));
+    scene->addItem(startButton);
+
+    //breng dice uitkomsten naar 0 zodat ze bij de start functie altijd terug van 0 beginnen
+    diceRollP1 = 0;
+    diceRollP2 = 0;
 
 }
 
 void game::start()
 {
     //clear screen
-    scene->clear();
+    //scene->clear();
 
     //create board
-    board *monopolyboard = new board();
     scene->addItem(monopolyboard);
 
-    //place whosTurn text
-    whosTurnText = new QGraphicsTextItem();
-    //deciding whosturn---------------//
-    setWhosTurn(QString("PLAYER 2"));
-    //--------------------------------//
+    //style/positioneer text
     QFont playerFont("showcard gothic", 20);
     whosTurnText->setFont(playerFont);
     whosTurnText->setDefaultTextColor(game::getWhosTurnColor());
@@ -224,7 +281,7 @@ void game::start()
     scene->addItem(whosTurnText);
 
     //place geldbedrag
-    moneyText = new QGraphicsTextItem("$1000");
+    moneyText->setPlainText("$1000");
     QFont moneyFont("showcard gothic", 20);
     moneyText->setFont(moneyFont);
     moneyText->setDefaultTextColor(game::getWhosTurnColor());
@@ -232,21 +289,18 @@ void game::start()
     scene->addItem(moneyText);
 
     //show cards button
-    button* showCardsButton = new button(QString("Show cards"));
-    int showCxPos = 1150;
-    int showCyPos = 225;
-    showCardsButton->setPos(showCxPos,showCyPos);
-    connect(showCardsButton, SIGNAL(clicked()),this,SLOT(showCards()));
+    showCardsButton->setBrush(game::getWhosTurnColor());
+    showCardsButton->setPos(1150,225);
     scene->addItem(showCardsButton);
 
     //create the dice button
-    button* diceButton = new button(QString("Throw the dice"));
-    int dxPos = 1150;
-    int dyPos = 325;
-    diceButton->setPos(dxPos,dyPos);
-    connect(diceButton, SIGNAL(clicked()),this,SLOT(throwDice()));
+    diceButton->setBrush(game::getWhosTurnColor());
+    diceButton->setPos(1150,325);
     scene->addItem(diceButton);
 
+    //plaatsen van pion
+    player1Pawn->setPos(900 - (46 * diceRollP1),900);
+    scene->addItem(player1Pawn);
 }
 
 void game::showCards()
@@ -257,8 +311,9 @@ void game::showCards()
 
 void game::throwDice()
 {
-    int diceRoll1 = dice().gooidice();
-    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRoll1);
+
+    int diceRollP1 = dice().gooidice();
+    QString s = QStringLiteral("Je hebt het nummer %1 gegooid!").arg(diceRollP1);
 
     //text
     noteText = new QGraphicsTextItem(s);
@@ -267,18 +322,10 @@ void game::throwDice()
     noteText->setPos(1150,500);
     scene->addItem(noteText);
 
-    //voor timer (mss verwijderen later)
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()),this,SLOT(removeDiceText()));
-    timer->start(2000);
+    //create the next button
+    nextButton->setPos(1275,925);
+    scene->addItem(nextButton);
 }
 
-void game::removeDiceText()
-{
-    delete noteText;
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()),this,SLOT(start()));
-    timer->start(0);
-}
 
 

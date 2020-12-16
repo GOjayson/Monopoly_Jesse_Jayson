@@ -2,11 +2,14 @@
 #include "showCardsMenu-UI.h"
 
 #include <QApplication>
+#include <cstdlib>
+#include <ctime>
 
 
 
 int main(int argc, char *argv[])
 {
+    srand(time(NULL));
     QApplication a(argc, argv);
 
     game *window1 = new game;

@@ -1,12 +1,12 @@
-#ifndef PAWN1_H
-#define PAWN1_H
+#ifndef PAWNP1_H
+#define PAWNP1_H
 
 #include <QGraphicsEllipseItem>
 
-class pawn1: public QGraphicsEllipseItem{
+class pawnP1: public QGraphicsEllipseItem{
 public:
     //constructors
-    pawn1(QGraphicsItem* parent=nullptr);
+    pawnP1(QGraphicsItem* parent=nullptr);
 
     //public methods
     int setPosPawn1(int diceRoll);

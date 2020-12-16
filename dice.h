@@ -6,6 +6,7 @@ public:
 
     //constructor
     dice();
+
     //public methods
     int gooidice();
 
