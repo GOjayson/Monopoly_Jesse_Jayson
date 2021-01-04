@@ -7,9 +7,6 @@ class pawnP1: public QGraphicsEllipseItem{
 public:
     //constructors
     pawnP1(QGraphicsItem* parent=nullptr);
-
-    //public methods
-    int setPosPawn1(int diceRoll);
 };
 
-#endif // PAWN1_H
+#endif // PAWNP1_H

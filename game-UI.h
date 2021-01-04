@@ -9,6 +9,7 @@
 #include "board-UI.h"
 #include "button-UI.h"
 #include "pawnP1-UI.h"
+#include "pawnP2-UI.h"
 
 
 class game: public QGraphicsView{
@@ -20,8 +21,7 @@ public:
     //public methods
     void displayMainMenu();
     void setWhosTurn(QString player);
-    int movePawn1(int diceRoll);
-    QString getWhosTurn() const {return (whosTurn);} //nog niet gebruikt
+    QString getWhosTurn() {return (game::whosTurn);}
     static QColor getWhosTurnColor() {return (game::whosTurnColor);}
 
     //public attributes
@@ -34,8 +34,10 @@ public slots:
     void displayWhosturnP2();
     void finalDecisionWhosturn();
     void start();
-    void showCards();
     void throwDice();
+    void NO();
+    void YES();
+    void showCards();
 
 private:
     QGraphicsTextItem* noteText;
@@ -44,13 +46,26 @@ private:
     board *monopolyboard;
     button* showCardsButton;
     button* diceButton;
-    pawnP1* player1Pawn;
     button* nextButton;
+    button* noButton;
+    button* yesButton;
+    pawnP1* player1Pawn;
+    pawnP2* player2Pawn;
 
     QString whosTurn; //mss ook pointer van maken?
 
     int diceRollP1;
     int diceRollP2;
+    int xStartPos1;
+    int yStartPos1;
+    int xStartPos2;
+    int yStartPos2;
+    int tempP1;
+    int tempP2;
+
+    bool diceButtonClicked;
+    bool noButtonClicked;
+    bool yesButtonClicked;
 
     static QColor whosTurnColor;
 

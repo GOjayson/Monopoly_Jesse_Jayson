@@ -5,7 +5,7 @@
 
 dice::dice()
 {
-    sides = 12; //omdat het 2 dobbelstenen zijn
+    sides = 6;
 }
 
 int dice::gooidice()

@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 
     game *window1 = new game;
 
+
     //Game tonen
     window1->show();
     window1->displayMainMenu();

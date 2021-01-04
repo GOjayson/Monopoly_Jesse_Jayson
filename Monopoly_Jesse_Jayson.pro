@@ -17,6 +17,7 @@ SOURCES += \
     main.cpp \
     myRect.cpp \
     pawnP1-UI.cpp \
+    pawnP2-UI.cpp \
     showCardsMenu-UI.cpp
 
 HEADERS += \
@@ -27,6 +28,7 @@ HEADERS += \
     game-UI.h \
     myRect.h \
     pawnP1-UI.h \
+    pawnP2-UI.h \
     printf.h \
     showCardsMenu-UI.h
 
