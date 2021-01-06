@@ -13,6 +13,7 @@ SOURCES += \
     bank.cpp \
     card.cpp \
     dice.cpp \
+    ganaaractie.cpp \
     moneyactie.cpp \
     moneycard.cpp \
     moveactie.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     card.h \
     dice.h \
     dice.h \
+    ganaaractie.h \
     moneyactie.h \
     moneycard.h \
     moveactie.h \

@@ -4,7 +4,7 @@
 
 dice::dice()
 {
-    sides = 6;
+    sides = 12;
 }
 
 int dice::gooidice(){

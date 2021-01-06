@@ -4,7 +4,7 @@
 #include <string>
 #include <player.h>
 
-using namespace std;
+using namespace Intern;
 
 class acties
 {

@@ -538,7 +538,7 @@ void move(int numPlayer, int inputHoeveelheid)
 
 void creerspeler(int numPlayers)
 {
-    players = new Player[numPlayers];
+    players = new Player[numPlayers]; // NEW zorgt voor memory handling
 }
 
 void setSpelerNaam(int playerNum, string inputNaam)

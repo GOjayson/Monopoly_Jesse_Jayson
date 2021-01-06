@@ -3,7 +3,7 @@
 
 #include <string>
 
-using namespace std;
+using namespace Intern;
 
 class player
 {
