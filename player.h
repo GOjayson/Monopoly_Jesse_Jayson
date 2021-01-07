@@ -3,9 +3,9 @@
 
 #include <string>
 
-using namespace Intern;
+using namespace std;
 
-class player
+class Player
 {
 
     public:

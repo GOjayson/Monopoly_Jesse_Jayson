@@ -3,7 +3,7 @@
 
 #include <string>
 
-using namespace Intern;
+using namespace std;
 
 class bank
 {

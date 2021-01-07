@@ -531,102 +531,102 @@ spelBord::spelBord()
 
 }
 
-void move(int numPlayer, int inputHoeveelheid)
+void spelBord::move(int numPlayer, int inputHoeveelheid)
 {
-    movement.moveHoeveelheid(&(players[numPlayer]), inputHoeveelheid);
+    movement.moveHoeveelheid(&(Player[numPlayer]), inputHoeveelheid);
 }
 
-void creerspeler(int numPlayers)
+void spelBord::creerspeler(int numPlayers)
 {
     players = new Player[numPlayers]; // NEW zorgt voor memory handling
 }
 
-void setSpelerNaam(int playerNum, string inputNaam)
+void spelBord::setSpelerNaam(int playerNum, string inputNaam)
 {
     players[playerNum].setSpelerNaam(inputNaam);
 }
 
-void setPion(int playerNum, string inputPion)
+void spelBord::setPion(int playerNum, string inputPion)
 {
     players[playerNum].setPionNaam(inputPion);
 }
 
-string getSpelerNaam(int playerNum)
+string spelBord::getSpelerNaam(int playerNum)
 {
     return players[playerNum].getSpelerNaam();
 }
 
-string getPionNaam(int playerNum)
+string spelBord::getPionNaam(int playerNum)
 {
     return players[playerNum].getPionNaam();
 }
 
-player* getSpeler(int num)
+player* spelBord::getSpeler(int num)
 {
     return &players[num];
 }
 
-int getSpelerLocatie(int playerNum)
+int spelBord::getSpelerLocatie(int playerNum)
 {
     return players[playerNum].getLocatie();
 }
 
-int getSpelerGeld(int playerNum)
+int spelBord::getSpelerGeld(int playerNum)
 {
     return players[playerNum].getGeld();
 }
 
-string straatType(int inputIndex)
+string spelBord::straatType(int inputIndex)
 {
     return straten[inputIndex].getType();
 }
 
-int getStraatEigenaar(int straatIndex)
+int spelBord::getStraatEigenaar(int straatIndex)
 {
     return straten[straatIndex].getEigenaar();
 }
 
-int getEigendomPrijs(int straatIndex)
+int spelBord::getEigendomPrijs(int straatIndex)
 {
     return straten[straatIndex].getEigendomPrijs();
 }
 
-void setEigenaar(int straatIndex, int playerNum)
+void spelBord::setEigenaar(int straatIndex, int playerNum)
 {
     straten[straatIndex].setEigenaar(playerNum);
 }
 
-int getHuur(int straatIndex)
+int spelBord::getHuur(int straatIndex)
 {
     return straten[straatIndex].getHuur();
 }
 
-int getTax(int straatIndex)
+int spelBord::getTax(int straatIndex)
 {
     return straten[straatIndex].getTax();
 }
 
-int getParking(int straatIndex)
+int spelBord::getParking(int straatIndex)
 {
     return straten[straatIndex].getParking();
 }
 
-string getNaam(int straatIndex, int index)
+string spelBord::getNaam(int straatIndex, int index)
 {
     return straten[straatIndex].getNaam(index);
 }
 
-void straatUpgrade(int straatIndex)
+void spelBord::straatUpgrade(int straatIndex)
 {
     straten[straatIndex].upgrade();
 }
 
-bool leeftSpeler(int playerNum)
+bool spelBord::leeftSpeler(int playerNum)
 {
     return players[playerNum].isAlive();
 }
 
-void spelerDood(int playerNum)
+void spelBord::spelerDood(int playerNum)
 {
     players[playerNum].dead()
 }

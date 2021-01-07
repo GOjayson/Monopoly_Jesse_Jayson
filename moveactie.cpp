@@ -15,17 +15,17 @@ moveactie::moveactie() : acties()
     hoeveelheid = 0;
 }
 
-void setHoeveelheid(int inputHoeveelheid)
+void moveactie::setHoeveelheid(int inputHoeveelheid)
 {
     hoeveelheid = inputHoeveelheid;
 }
 
-void moveHoeveelheid(player *player1, int inputHoeveelheid)
+void moveactie::moveHoeveelheid(Player *player1, int inputHoeveelheid)
 {
-    player->movePlayer(int inputHoeveelheid)
+    Player->movePlayer(int inputHoeveelheid);
 }
 
-void getHoeveelheid()
+int moveactie::getHoeveelheid()
 {
     return hoeveelheid;
 }

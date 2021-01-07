@@ -13,7 +13,7 @@ class card
         card();
         virtual void setHoeveelheid(int num) = 0;
         virtual void setCardText(string text1) = 0;
-        virtual void cardActie(bank* bank1, player* player1) = 0;
+        virtual void cardActie(bank* bank1, Player* player1) = 0;
         virtual string getCardText(int num) = 0;
 
     private:

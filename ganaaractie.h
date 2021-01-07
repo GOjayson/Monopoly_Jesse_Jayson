@@ -9,8 +9,8 @@ class gaNaarActie : public acties
 {
 
     public:
-        gaNaarStart();
-        void executeActie(player* player1, player* player2, int hoeveelheid);
+        gaNaarActie();
+        void executeActie(Player* player1, Player* player2, int hoeveelheid);
 
     private:
         int locatie;

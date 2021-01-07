@@ -16,11 +16,11 @@ class moneyactie : public acties
         moneyactie(string keuzeNaam, int geldInput);
 
         //functies
-        void betaalGeld(player *player1, player *player2, int hoeveelheid);
+        void betaalGeld(Player *player1, Player *player2, int hoeveelheid);
         int getGeld();
-        void exeActie(player* player1, Player* player2, int hoeveelheid);
-        void bankVerliest(player* player1, bank* bank1, int hoeveelheid);
-        void bankKrijgt(player* player1, bank* bank1, int hoeveelheid);
+        void exeActie(Player* player1, Player* player2, int hoeveelheid);
+        void bankVerliest(Player* player1, bank* bank1, int hoeveelheid);
+        void bankKrijgt(Player* player1, bank* bank1, int hoeveelheid);
 
     private:
         int geld;

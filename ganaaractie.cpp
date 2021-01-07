@@ -1,11 +1,11 @@
 #include "ganaaractie.h"
 
-gaNaarActie::gaNaarActie() : actie()
+gaNaarActie::gaNaarActie() : acties()
 {
     locatie = 0;
 }
 
-void executeActie(player* player1, player* player2, int hoeveelheid)
+void gaNaarActie::executeActie(Player* player1, Player* player2, int hoeveelheid)
 {
     player1->setLocatie(hoeveelheid);
 }

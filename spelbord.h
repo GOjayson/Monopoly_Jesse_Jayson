@@ -15,7 +15,7 @@ class spelBord
         // functies
         void creerspeler(int numPlayers);
         void setSpelerNaam(int playerNum, string inputNaam);
-        void setPion(int playerNum, string inputPion)
+        void setPion(int playerNum, string inputPion);
 
         string getSpelerNaam(int playerNum);
         string getPionNaam(int playerNum);
@@ -38,7 +38,7 @@ class spelBord
 
     private:
         straatEigenschappen straten[40];
-        player* players;
+        Player* players;
         moveactie movement;
 
 

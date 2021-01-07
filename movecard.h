@@ -9,7 +9,7 @@ class movecard : public card
         movecard();
         void setHoeveelheid(int num);
         void setKaartText(string text1);
-        void kaartActie(bank* bank1, player* player1);
+        void kaartActie(bank* bank1, Player* player1);
         string getKaartText(int num);
 
     private:

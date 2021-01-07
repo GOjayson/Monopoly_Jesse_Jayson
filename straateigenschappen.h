@@ -4,7 +4,7 @@
 #include <acties.h>
 
 
-class straatEigenschappen
+class straateigenschappen
 {
 
     public:

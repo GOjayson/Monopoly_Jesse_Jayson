@@ -11,12 +11,12 @@ class moveactie : public acties
 
         //constructors
         moveactie();
-        moveactie::moveactie(string keuzeNaam, int inputHoeveelheid);
-        moveactie::moveactie(string keuzeNaam);
+        moveactie(string keuzeNaam, int inputHoeveelheid);
+        moveactie(string keuzeNaam);
 
         // functies
         void setHoeveelheid(int inputHoeveelheid);
-        void moveHoeveelheid(player *player1, int inputHoeveelheid);
+        void moveHoeveelheid(Player *player1, int inputHoeveelheid);
         void getHoeveelheid();
 
     private:

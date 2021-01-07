@@ -4,7 +4,7 @@
 #include <string>
 #include <player.h>
 
-using namespace Intern;
+using namespace std;
 
 class acties
 {
@@ -13,7 +13,7 @@ class acties
         acties();
         acties(string inputNaam);
 
-        virtual void executeActie(player* player1, player* player2, int hoeveelheid) = 0;
+        virtual void executeActie(Player* player1, Player* player2, int hoeveelheid) = 0;
 
     private:
         string naam;

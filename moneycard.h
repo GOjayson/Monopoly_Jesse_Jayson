@@ -7,9 +7,9 @@ class moneyCard : public card
 {
     public:
         moneyCard();
-        void setHoeveelheid;
-        void setKaartText;
-        void kaartActie;
+        void setHoeveelheid(int num);
+        void setKaartText(string text1);
+        void kaartActie(bank* bank1, Player* player1);
         string getKaartText(int num);
 
     private:
