@@ -3,19 +3,21 @@
 
 #include <QGraphicsScene>
 
-showCardsMenu::showCardsMenu(QWidget *parent)
+namespace monopoly
 {
-    //set up the screen
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(500,500);
+    showCardsMenu::showCardsMenu(QWidget *parent)
+    {
+        //set up the screen
+        setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        setFixedSize((unsigned short)500,(unsigned short)500);
 
-    //Create a scene (soort storage voor alle QGraphicsItems en QGraphicView)
-    scene = new QGraphicsScene(this); //de "this" is om de QGraphicsView een parent te maken van deze scene
-    scene->setSceneRect(0,0,500,500); // make the scene 1000x1000 instead of ifinity
-    setScene(scene);
-
-
+        //Create a scene (soort storage voor alle QGraphicsItems en QGraphicView)
+        scene = new QGraphicsScene(this);
+        scene->setSceneRect(0,0,(unsigned short)500,(unsigned short)500);
+        setScene(scene);
+    }
 }
+
 
 

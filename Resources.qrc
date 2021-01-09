@@ -3,4 +3,5 @@
         <file>monopolyBoard.jpg</file>
         <file>monopolyBoardV2.jpg</file>
     </qresource>
+    <qresource prefix="/sounds"/>
 </RCC>

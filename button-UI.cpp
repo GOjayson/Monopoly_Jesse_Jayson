@@ -5,61 +5,71 @@
 #include <QGraphicsTextItem>
 #include <iostream>
 
-button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
+namespace monopoly
 {
-    //draw rect
-    setRect(0,0,200,50);
-
-    //paint the rect
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(game::getWhosTurnColor());
-    setBrush(brush);
-
-    //draw the text
-    text = new QGraphicsTextItem (Name, this);
-    text->setDefaultTextColor(Qt::white);
-    //om de text in het midden van de knop te krijgen (de knop is de parent)
-    int xPos = rect().width()/2 - text->boundingRect().width()/2;
-    int yPos = rect().height()/2 - text->boundingRect().height()/2;
-    text->setPos(xPos,yPos);
-
-    //allowing responding to hover events
-    setAcceptHoverEvents(true);
-
-
-
-}
-
-void button::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-    emit clicked();
-}
-
-void button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
-{
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    QColor color = game::getWhosTurnColor();
-    if(color == Qt::darkGreen)
+    button::button(QString Name, QGraphicsItem* parent):QGraphicsRectItem(parent)
     {
-        brush.setColor(Qt::green);
+        //draw rect
+        setRect(0,0,(unsigned char)200,(unsigned char) 50);
+
+        //paint the rect
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(game::getWhosTurnColor());
+        setBrush(brush);
+
+        //draw the text
+        text = new QGraphicsTextItem (Name, this);
+        text->setDefaultTextColor(Qt::white);
+
+        //om de text in het midden van de knop te krijgen (de knop is de parent)
+        unsigned char divider = 2;
+        unsigned char xPos = rect().width()/divider - text->boundingRect().width()/divider;
+        unsigned char yPos = rect().height()/divider - text->boundingRect().height()/divider;
+        text->setPos(xPos,yPos);
+
+        //allowing responding to hover events
+        setAcceptHoverEvents(true);
     }
-    if(color == Qt::darkBlue)
+
+    void button::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
-        brush.setColor(Qt::blue);
+        emit clicked();
+
+        //speel geluidje af bij klikken van de buttons (omg spaties in de path naam :O)
+        PlaySound(TEXT("C://Users//Jesse//OneDrive - PXL//School//2020 - 2021 - 2 AEIa//Github//Monopoly_Jesse_Jayson//buttonfx.wav"), NULL, SND_FILENAME| SND_ASYNC);
     }
-    if(color == Qt::darkRed)
+
+    void button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
     {
-        brush.setColor(Qt::red);
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+
+        //kleur veranderen naargelang speler
+        QColor color = game::getWhosTurnColor();
+        if(color == Qt::darkGreen)
+        {
+            brush.setColor(Qt::green);
+        }
+        if(color == Qt::darkBlue)
+        {
+            brush.setColor(Qt::blue);
+        }
+        if(color == Qt::darkRed)
+        {
+            brush.setColor(Qt::red);
+        }
+
+        setBrush(brush);
     }
-    setBrush(brush);
+
+    void button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+    {
+        //kleur veranderen bij hoveren
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(game::getWhosTurnColor());
+        setBrush(brush);
+    }
 }
 
-void button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
-{
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(game::getWhosTurnColor());
-    setBrush(brush);
-}

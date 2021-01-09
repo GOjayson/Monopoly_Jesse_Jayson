@@ -1,17 +1,21 @@
 #ifndef DICE_H
 #define DICE_H
 
-class dice{
-public:
+namespace monopoly
+{
+    class dice
+    {
+        public:
+            //constructor
+            dice(const unsigned char aantal = 6) : sides(aantal){}
+            ~dice(){}
 
-    //constructor
-    dice();
+            //public methods
+            unsigned char gooidice();
 
-    //public methods
-    int gooidice();
-
-private:
-    int sides;
-};
+        private:
+            unsigned char sides;
+    };
+}
 
 #endif // DICE_H

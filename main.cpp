@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 
-
+using namespace monopoly;
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     game *window1 = new game;
-
 
     //Game tonen
     window1->show();

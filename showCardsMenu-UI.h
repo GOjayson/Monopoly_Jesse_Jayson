@@ -5,14 +5,18 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
-class showCardsMenu: public QGraphicsView{
-public:
-    //constructors
-    showCardsMenu(QWidget* parent=nullptr);
+namespace monopoly
+{
+    class showCardsMenu: public QGraphicsView
+    {
+        public:
+            //constructors
+            showCardsMenu(QWidget* parent=nullptr);
+            ~showCardsMenu(){}
 
-    //public attributes
-    QGraphicsScene* scene;
-
-};
+            //public attributes
+            QGraphicsScene* scene;
+    };
+}
 
 #endif // SHOWCARDSMENU_H

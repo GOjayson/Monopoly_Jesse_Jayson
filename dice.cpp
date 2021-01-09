@@ -3,16 +3,14 @@
 #include <cstdlib>
 #include <ctime>
 
-dice::dice()
+namespace monopoly
 {
-    sides = 6;
+    unsigned char dice::gooidice()
+    {
+        unsigned char roll = 0;
+        roll = rand() % sides + (unsigned char) 1;
+
+        return roll;
+    }
 }
 
-int dice::gooidice()
-{
-
-    int roll = 0;
-    roll = rand() % sides + 1;
-
-    return roll;
-}

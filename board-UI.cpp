@@ -2,9 +2,14 @@
 
 #include <QPixmap>
 
-board::board(QGraphicsItem* parent)
+namespace monopoly
 {
-    //set the graphics
-    setPixmap(QPixmap(":/Pictures/monopolyBoardV2.jpg"));//is 1000px op 1000px groot
-
+    board::board(QGraphicsItem* parent)
+    {
+        //monopoly bord verwezenlijken
+        setPixmap(QPixmap(":/Pictures/monopolyBoardV2.jpg")); //is 1000px op 1000px groot
+    }
 }
+
+
+

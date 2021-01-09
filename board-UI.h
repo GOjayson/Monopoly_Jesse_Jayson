@@ -4,10 +4,15 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 
-class board : public QGraphicsPixmapItem{
-public:
-        //constructors
-        board(QGraphicsItem * parent =nullptr);
-};
+namespace monopoly
+{
+    class board : public QGraphicsPixmapItem
+    {
+        public:
+            //constructors
+            board(QGraphicsItem* parent=nullptr);
+            ~board(){}
+    };
+}
 
 #endif // BOARD_H

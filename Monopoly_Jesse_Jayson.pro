@@ -15,7 +15,6 @@ SOURCES += \
     dice.cpp \
     game-UI.cpp \
     main.cpp \
-    myRect.cpp \
     pawnP1-UI.cpp \
     pawnP2-UI.cpp \
     showCardsMenu-UI.cpp
@@ -26,7 +25,6 @@ HEADERS += \
     button-UI.h \
     dice.h \
     game-UI.h \
-    myRect.h \
     pawnP1-UI.h \
     pawnP2-UI.h \
     printf.h \
@@ -39,5 +37,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+LIBS += -lwinmm
+
 RESOURCES += \
     Resources.qrc
+
+
