@@ -1,11 +1,12 @@
 #ifndef PAWNP2_H
 #define PAWNP2_H
 
-#include <QGraphicsEllipseItem>
+#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 
 namespace monopoly
 {
-    class pawnP2: public QGraphicsEllipseItem
+    class pawnP2: public QGraphicsPixmapItem
     {
         public:
             //constructors
