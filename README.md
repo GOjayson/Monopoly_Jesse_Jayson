@@ -13,5 +13,3 @@ Due to circumstances, we were unable to merge our codes.
 if you want to experience the joy of a button sound effect, make sure you open the "button-UI.cpp" file and change the path, in the function "void button::mousePressEvent(QGraphicsSceneMouseEvent *event)", to the path of the "buttonfx.mp3" file. (It is included in the zip, so the path would be the location you unzipped the zip)
 <h6>!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!--!NOTE!</h6>
 
-<h2>Deel van Jayson </h2>
-...
