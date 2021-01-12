@@ -1,10 +1,3 @@
-/*
-Andrew Chen
-Professor Crowley
-April 30, 2014
-PA6: Board Game
-*/
-
 #include <iostream>
 #include <string>
 #include <sstream>
